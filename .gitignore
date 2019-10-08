@@ -1,3 +1,6 @@
 .DS_Store
 dist
 *.log*
+
+# Don't track pdf-s from racunalniski praktikum.
+rp*/**/*.pdf
