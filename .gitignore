@@ -4,3 +4,8 @@ dist
 
 # Don't track pdf-s from racunalniski praktikum.
 rp*/**/*.pdf
+rp*/**/*.aux
+rp*/**/*.log
+rp*/**/*.fls
+rp*/**/*.synctex.gz
+rp*/**/*.fdb_latexmk
