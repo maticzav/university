@@ -9,3 +9,4 @@ rp*/**/*.log
 rp*/**/*.fls
 rp*/**/*.synctex.gz
 rp*/**/*.fdb_latexmk
+rp*/**/*.out
