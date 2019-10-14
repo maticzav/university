@@ -1,0 +1,485 @@
+% Ta datoteka vsebuje osnove LaTeXa. Uporabite jo tako,
+% da primerjate njeno vsebino z generirano datoteko PDF.
+
+% Kogar zanima veÄ LaTeXu, lahko obiÅ¡Äe https://www.latex-project.org
+
+% LaTeX sprejme eno ali veÄ datotek .tex in naredi PDF.
+% V datoteko .tex piÅ¡emo besedilo in ukaze.
+
+% Komentarji se zaÄnejo z znakom % in veljajo do konca vrstice.
+
+% Dokument se zaÄne z ukazom \documentclass.
+% Ukaz \documentclass ima v [...] nastavitve in v {...} tip dokumenta.
+
+\documentclass[a4paper]{article}
+
+% LaTeX ima veliko Å¡tevilo tipov dokumentov, najboj pogosti so:
+%   article - Älanek
+%   amsart - Älanki za zdruÅ¾enje American Mathematical Society
+%   beamer - prosojnice za predavanje
+%   book - knjiga
+%   letter - pismo
+
+% Nastavitve so odvisne od tipa dokumenta, nekatere obiÄajne so:
+% a4paper ... format strani naj bo A4 (namesto ameriÅ¡ki letter)
+% 10pt, 11pt, 12pt ... velikost pisave
+
+% Sledi PREAMBULA, kjer se Å¡e ne piÅ¡e nobenega besedila, ampak
+% samo ukaze in nastavitve.
+
+% LaTeX ima veliko Å¡tevilo zelo uporabnih paketov. ObiÄajno najprej
+% povemo, katere pakete bomo uporabljali. To naredimo z ukazom
+% \usepackage[...]{...} kjer v [...] damo dodatne nastavitve za paket
+% in v {...} ime paketa.
+
+% Za slovenÅ¡Äino moramo nastaviti kodno tabelo datoteke .tex in
+% kodno tabelo datoteke PDF, da se pravilno obravnava Å¡umnike.
+% LaTeXu povemo tudi, da uporabljamo slovenÅ¡Äino (da pravilno prikaÅ¾e datum ipd).
+
+\usepackage[utf8]{inputenc}   % vhodna datoteka je kodirana v sistemu UTF-8
+
+% Ostale moÅ¾nosti za kodiranje so:
+%\usepackage[cp1250]{inputenc}   % Kodirna tabela za Windows, zastarelo
+%\usepackage[latin2]{inputenc}   % Kodirna tabela za Linux, zastarelo
+
+% Ker smo nastavili vhodno datoteko .tex na UTF-8, moramo poskrbeti,
+% da tudi urejevalnik, s katerim urejamo .tex, uporablja UTF-8.
+
+\usepackage[T1]{fontenc}      % izhodna datoteka je korirana v sistemu T1
+
+\usepackage[slovene]{babel}   % uporabljamo slovenÅ¡Äino
+
+% Nastavimo lahko tudi razne pisave, glej http://www.tug.dk/FontCatalogue/
+% Za slovenÅ¡Äino je dobro nastaviti novejÅ¡o inaÄico pisave lmodern
+
+\usepackage{lmodern}            % BoljÅ¡i fonti, s pravimi Å¡umniki
+% Ostale pogoste izbire pisav:
+% \usepackage{times}            % Times New Roman
+% \usepackage{palatino}         % Palatino
+% \usepackage{concrete}         % Pisava, ki jo je uporabil Donald Knuth v knjigi "Concrete mathematics"
+
+% S tem smo zakljuÄili pakete in nastavitve za slovenÅ¡Äino. Ostali paketi
+% in nastavitve so odvisni od tega, kaj bomo poÄeli. V tej datoteki bomo
+% prikazali osnove in hiper-povezave.
+
+\usepackage{hyperref}            % Paket za povezave znotraj dokumenta in hiper-povezave
+
+% To je konec preambule
+% Sledi vsbina dokumenta, ki se zaÄne z ukazom \begin{document} in konÄa z \end{document}.
+
+\begin{document}
+
+% Nastavimo naslov in avtorja.
+
+\title{Osnovno o {\LaTeX}u}
+\author{Andrej Bauer}
+
+% Lahko bi nastavili tudi datum, Äe ga ne, se bo izpisal danaÅ¡nji datum
+% \date{10.\ 10.\ 2017}
+
+% Ukaz, s katerim dejansko naredimo naslov
+\maketitle
+
+% LaTeX pozna t.i. okolja, ki se zaÄnejo in konÄajo z ukazoma
+% \begin{imeOkolja} ... \end{imeOkolja}.
+% Okolij je zelo veliko, zaenkrat bomo uporabili samo nekatera osnovna.
+
+\begin{abstract}
+  To je povzetek, v katerega napiÅ¡emo kratek opis vsebine Älanka, kar pomeni, da ta stavek
+  pravzaprav ne spada. V tem kratkem Älanku spoznamo osnove dokumentnega sistema {\LaTeX}.
+\end{abstract}
+
+% ÄŒlanek je hierarhiÄno razdeljen na razdelke (\section), podrazdelke (\subsection),
+% podpodrazdelke (\subsubsection) in podpodpodrazdelke (\paragraph). V veÄini primerov
+% potrebujemo samo razdelke in podarazdelke.
+
+\section{Uporaba razdelkov}
+
+% Oblikovalci pogosto potrebujejo kako besedilo, da prikaÅ¾ejo design spletne strani
+% ali dokumenta. Tradicionalno se v ta namen uporablja "Loerm ipsum ..." glej
+% http://www.lipsum.com. Tudi mi ga bomo, kar je bolje, kot da bi citirali Cankarja.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper, ligula eget
+porttitor lobortis, lacus ante posuere magna, eget dapibus lacus odio sit amet urna.
+Curabitur eget tincidunt lacus, a mollis lectus. Donec non est a eros gravida venenatis
+nec quis elit. Sed vulputate, neque eget pellentesque egestas, eros diam porttitor est,
+non lobortis velit turpis vitae velit.
+
+\subsection{Uporaba podrazdelkov}
+
+Donec bibendum tempor metus, vitae porttitor nibh sodales sed. Proin et est non magna
+aliquet finibus. Vivamus volutpat risus vel purus suscipit auctor in eget metus. Praesent
+eget nisl ante. Donec gravida, diam non aliquam rhoncus, elit enim pellentesque augue,
+vitae vulputate orci orci non lorem. Duis vestibulum sapien eget orci venenatis, id
+scelerisque risus mattis. Fusce dignissim lacus in nulla lobortis pretium. Aenean sit amet
+imperdiet tellus.
+
+\subsubsection{To je podpodrazdelek}
+
+Tiho so se zaprla velika Å¾elezna vrata; v mraÄnem hodniku, na mrzlih stenah je zasijalo za
+hip jesensko sonce. Za steklenimi durmi, v sobi vratarice, je gorela rdeÄa luÄ z dolgim,
+mirnim plamenom; nad svetilko je bilo pribito na steni razpelo z golim, vse krvavim
+Å¾ivotom kriÅ¾anega Kristusa, ki Å¡e ni bil ganil glave in je gledal z velikimi mirnimi oÄmi.
+MalÄi je vztrepetala v materinem naroÄju in se je prekriÅ¾ala.
+
+\paragraph{To je podpodpodrazdelek}
+
+Velikokrat v svojem Å¾ivljenju sem storil krivico Äloveku, ki sem ga ljubil. Taka krivica
+je kakor greh zoper svetega duha: ne na tem ne na onem svetu ni odpuÅ¡Äena. Neizbrisljiva
+je, nepozabljiva. ÄŒasih poÄiva dolga leta, kakor da je bila ugasnila v srcu, izgubila se,
+utopila v nemirnem Å¾ivljenju. Nenadoma, sredi vesele ure, ali ponoÄi, ko se prestraÅ¡en
+vzdramiÅ¡ iz hudih sanj, pade v duÅ¡o teÅ¾ak spomin, zaboli in zapeÄe s toliko silo, kakor da
+je bil greh Å¡ele v tistem trenutku storjen. Vsak drug spomin je lahko zabrisati. ÄŒrn madeÅ¾
+je na srcu in ostane za vekomaj.
+
+\subsection{In Å¡e kak podrazdelek}
+
+ZaÄul sem tihe korake na stopnicah. PriÅ¡la je mati; stopala je poÄasi in varno, v roki je
+nesla skodelico kave. Zdaj se spominjam, da nikoli ni bila tako lepa kakor v tistem
+trenutku. Skozi vrata je sijal poÅ¡even pramen opoldanskega sonca, naravnost materi v oÄi;
+veÄje so bile in ÄistejÅ¡e, vsa nebeÅ¡ka luÄ je odsevala iz njih, vsa nebeÅ¡ka blagost in
+ljubezen. Ustnice so se smehljale kakor otroku, ki prinaÅ¡a vesel dar.
+
+Jaz pa sem se ozrl in sem rekel z zlobnim glasom: ">Pustite me na miru!~\dots Ne maram zdaj!"<
+
+\section{Zaviti oklepaji in ukazi}
+
+Z zavitimi oklepaji \texttt{\{} in \texttt{\}} v LaTeXu zdruÅ¾imo kos besedila ali ukazov,
+da se obravnavajo kot celota.
+
+Ukazi ali \emph{makroji} se v LaTeXu piÅ¡ejo
+%
+\begin{center}
+  \verb|\imeUkaza{...}|
+\end{center}
+%
+ali
+%
+\begin{center}
+  \verb|\imeUkaza{...}{...}{...}|
+\end{center}
+%
+Äe ukaz sprejme veÄ argumentov. Uporabnik lahko definira svoje ukaze, a o tem kasneje.
+Ukazi brez argumenta ``pojejo'' presledek, zato jih piÅ¡emo v zavite oklepaje:
+%
+\begin{itemize}
+\item \LaTeX je dokumentni sistem.
+\item {\LaTeX} je dokumentni sistem.
+\end{itemize}
+
+
+\section{Izbira in velikost pisave}
+
+Praviloma pisave izbiramo premiÅ¡ljeno, ali pa izbor kar prepustimo LaTeXu.
+Besedilo lahko \emph{poudarimo} ali zapiÅ¡emo \textbf{krepko}, ali pa \emph{\textbf{oboje skupaj}}.
+Kaj se zgodi, Äe \emph{uporabimo poudarjeno \emph{znotraj} poudarjenega besedila}?
+Seveda \textbf{lahko lahko nastavimo tudi \textnormal{obiÄajno} pisavo}.
+Besedilo lahko tudi \underline{podÄrtamo}, vendar tega ne priporoÄamo, \underline{ker} \underline{je grdo}.
+
+% Sans-serifna pisava je pisava brez "repkov" (serifov), glej https://en.wikipedia.org/wiki/Sans-serif
+PiÅ¡emo lahko tudi v \textsf{sans-serifni pisavi} ali pa \textsc{z malimi velikimi Ärkami},
+denimo \textsc{Python}. LeÅ¾eÄa pisava \textsl{ni ista reÄ kot} \emph{poudarjena pisava}.
+VÄasih uporabimo tudi \texttt{pisavo fiksne Å¡irine}, v kateri so vsi znaki enako Å¡iroki.
+
+
+\subsection{Velikosti pisav}
+
+% Ukazi s katerimi nastavimo velikost pisave, a tega raje ne poÄnite na roke
+\begin{center}
+{\Huge Zdravljica} \\
+{\Huge Å½ivÃ© naj vsi narÃ³di,} \\
+{\huge ki hrepenÃ© doÄakat dan,} \\
+{\LARGE ko, koder sonce hodi,} \\
+{\Large prepir iz svÃ©ta bo pregnan,} \\
+{\large ko rojak} \\
+{\normalsize prost bo vsak,} \\
+{\footnotesize ne vrag, le sosed bo mejak!} \\
+{\scriptsize Kdor ne skaÄe ni Slovenc!} \\
+{\tiny $\forall x \,.\, \lnot\mathrm{skaÄe}(x) \Rightarrow \lnot\mathrm{slovenc}(x)$}
+\end{center}
+
+\subsection{Ligature in kerningi}
+
+Pozorno poglejte naslednje primere in povejte, kaj se je zgodilo. Nato se nauÄite, kaj so
+\emph{ligature} in \emph{kerningi}:
+%
+\begin{itemize}
+\item afina preslikava
+\item {a}{f}{i}{n}{a} preslikava
+\item AVTO!
+\item {A}{V}{T}{O}!
+\end{itemize}
+
+
+\section{NaÅ¡tevanje}
+
+NeoÅ¡tevilÄeno naÅ¡tevanje:
+%
+\begin{itemize}
+
+\item Phasellus dolor odio, rhoncus et turpis eu, pharetra maximus nibh. Nullam maximus
+  orci sit amet enim sodales accumsan. Fusce consectetur diam placerat dictum viverra.
+  Cras massa nisl, ultrices in aliquet nec, iaculis nec erat.
+
+\item Mauris neque magna, tincidunt ut ante quis, pulvinar venenatis ex. Duis sollicitudin
+  scelerisque mollis. Integer id eros ac metus pretium vehicula et nec odio. Integer
+  rhoncus lacinia velit in auctor. Etiam id ipsum a eros posuere pharetra.
+\end{itemize}
+
+OÅ¡tevilÄeno naÅ¡tevanje:
+%
+\begin{enumerate}
+
+\item Phasellus dolor odio, rhoncus et turpis eu, pharetra maximus nibh. Nullam maximus
+  orci sit amet enim sodales accumsan. Fusce consectetur diam placerat dictum viverra.
+  Cras massa nisl, ultrices in aliquet nec, iaculis nec erat.
+
+\item Mauris neque magna, tincidunt ut ante quis, pulvinar venenatis ex. Duis sollicitudin
+  scelerisque mollis. Integer id eros ac metus pretium vehicula et nec odio. Integer
+  rhoncus lacinia velit in auctor. Etiam id ipsum a eros posuere pharetra.
+\end{enumerate}
+
+Vgnezdeno naÅ¡tevanje:
+%
+\begin{enumerate}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+\item Phasellus dolor odio, rhoncus et turpis eu, pharetra maximus nibh:
+  \begin{itemize}
+  \item Nullam maximus orci sit amet enim sodales accumsan.
+  \item Fusce consectetur diam placerat dictum viverra.
+    \begin{itemize}
+    \item Integer id eros ac metus pretium vehicula et nec odio.
+    \item Integer rhoncus lacinia velit in auctor.
+    \item Etiam id ipsum a eros posuere pharetra.
+    \end{itemize}
+  \item Cras massa nisl, ultrices in aliquet nec, iaculis nec erat:
+    \begin{enumerate}
+    \item Mauris neque magna, tincidunt ut ante quis, pulvinar venenatis ex. Duis
+      sollicitudin scelerisque mollis.
+    \item Integer id eros ac metus pretium vehicula et nec odio. Integer rhoncus lacinia
+      velit in auctor.
+    \item Etiam id ipsum a eros posuere pharetra.
+    \end{enumerate}
+  \end{itemize}
+\end{enumerate}
+
+\section{Posebni znaki in presledki}
+
+\subsection{Posebni znaki}
+
+Znaki
+%
+\begin{verbatim}
+  # $ % & \ ^ _ { } ~
+\end{verbatim}
+%
+imajo poseben pomen, saj se uporabljajo za komentarje, ukaze, matematiÄni naÄin itd. ÄŒe
+jih Å¾elimo zapisati, to storimo takole:
+%
+\begin{center}
+\begin{tabular}{cl}
+znak & ukaz \\
+\# & \verb|\#| \\
+\$ & \verb|\$| \\
+\% & \verb|\%| \\
+\& & \verb|\&| \\
+{\textbackslash} & \verb|{\textbackslash}| \\
+{\textasciicircum} & \verb|{\textasciicircum}| \\
+\_ & \verb|\_| \\
+\{ & \verb|\{| \\
+\} & \verb|\}| \\
+{\textasciitilde} & \verb|{\textasciitilde}| \\
+\end{tabular}
+\end{center}
+\subsection{Narekovaji}
+
+Takole napiÅ¡emo `enojne' narekovaje. PoiÅ¡Äite ta dva znaka na tipkovnici. Dvoje narekovaje
+piÅ¡emo ``takole''. Pravzaprav s tem dobimo angleÅ¡ke narekovaje. Slovenski narekovaji so
+">takÅ¡ni"< ali pa "`takÅ¡ni"'.
+
+NapaÄni naÄini pisanja narekovajev: znaka za levi in desni narekovaj nista enaka, zato se
+\emph{ne} piÅ¡e 'takole' ali ''takole''. Å e posebej pa se ne piÅ¡e "takole".
+
+\subsection{Vezaji, pomiÅ¡ljaji in minusi}
+\label{sec:vezaji-pomilj-minusi}
+
+
+\subsection{Presledki}
+
+V {\LaTeX}u poznamo veÄ vrst presledkov, zato se nauÄimo uporabljati. Navadne presledke
+piÅ¡emo s presledki, pri Äemer ima    veÄ      zaporednih presledkov enak uÄinek kot en sam.
+
+Poznamo Å¡e \emph{krepki} ali \emph{nedeljivi} presledek, ki se ga piÅ¡e z znakom tilda
+\texttt{\char126}. Ta presledek prepreÄi prelom vrstice in ga uporabimo, kadar bi bil
+prelom videti grd. Primer je inicialka in ime, na primer N.~Tesla.
+
+Presledek za piko {\LaTeX} obravnava drugaÄe kot ostale presledke. Tak presledek je bolj
+``raztegljiv'' in zato moramo vedno oznaÄiti presledke, ki sledijo piki, a niso konec
+stavka. To naredimo tako, da pred presledek zapiÅ¡emo poÅ¡evnico \texttt{\char92} ali tildo
+\texttt{\char126}. Tako piÅ¡emo N.~Tesla in ne N. Tesla. VÄasih si ne moremo privoÅ¡Äiti
+celega zaporedja nedeljivih presledkov, takrat uporabimo navaden deljivi presledek.
+Denimo, Äe bi zapisali akad.~prof.~dr.~Franc ForstneriÄ, bi moral {\LaTeX} zaradi tega
+deliti veÄ besed, zato je boje pisati akad.\ prof.\ dr.~Franc ForstneriÄ.
+
+
+
+
+
+
+\subsection{Odstavki}
+
+Ena ali veÄ praznih vrstic oznaÄuje nov odstavek. To pomeni, da ne smemo po nepotrebnem
+delati praznih vrstic, kar se Å¡e posebej rado dogaja pred in za matematiÄno formulo.
+
+Pravilno piÅ¡emo
+\[
+   a^2 + b^2 = c^2,
+\]
+brez praznih vrstic. ÄŒe pa zapiÅ¡emo prazno vrstico,
+\[
+   a^2 + b^2 = c^2,
+\]
+
+na primer za formulo, potem bo besedilo zamaknjeno, kot da se je zaÄel nov odstavek,
+Äeprav se je nadaljeval stavek.
+
+
+
+\section{Nekatera druga okolja}
+
+DaljÅ¡i navedek:
+%
+\begin{quote}
+  No, potlej je tista poÅ¡ast ali tisti peklenski Å¡krat plezal gor ob barki prav na glas:
+  Å¡kreb! Å¡kreb! Å¡kreb! Kakor je na vrh priÅ¡el, pa se ti je iz oÄi v oÄi meni nasproti
+  postavil. Sveta mamka boÅ¾ja sedem kriÅ¾ev in teÅ¾av --- sem jaz dejal --- pa sem zavzdignil
+  bridko sabljo pa sem zamahnil pa sem Äez glavo ubral in loputnil: lop! --- pa sem ga
+  presekal, samega hudiÄa sem presekal, na dva kosa!
+\end{quote}
+
+\noindent
+Centrirano besedilo:
+%
+\begin{center}
+Overhead the albatross hangs motionless upon the air\\
+And deep beneath the rolling waves in labyrinths of coral caves\\
+The echo of a distant tide\\
+Comes willowing across the sand\\
+And everything is green and submarine
+\end{center}
+
+\noindent
+Poravnano levo:
+%
+\begin{flushleft}
+And no one showed us to the land\\
+And no one knows the wheres or whys\\
+But something stirs and something tries\\
+And starts to climb towards the light
+\end{flushleft}
+
+\noindent
+Poravnano desno:
+%
+\begin{flushright}
+Strangers passing in the street\\
+By chance two separate glances meet\\
+And I am you and what I see is me\\
+And do I take you by the hand\\
+And lead you through the land\\
+And help me understand the best I can\\
+And no one calls us to move on\\
+And no one forces down our eyes\\
+No one speaks\\
+And no one tries\\
+No one flies around the sun
+\end{flushright}
+
+Ker ima vsak surjektivna funkcija $f : A \to B$ prerez,\footnote{Pravimo, da je
+  $g : B \to A$ \emph{prerez} funckije $f : A \to B$, Äe velja
+  $f \circ g = \mathrm{id}_B$.} je svet lepÅ¡i. Narobe pa bi bilo postaviti pripombo pred
+loÄilo\footnote{To je primer take pripombe.}, ali celo ob matematiÄni simbol
+$x$\footnote{Pozor, tu je miÅ¡ljen $x$ in ne $x^3$.} in tako povzroÄati zmedo.
+
+\section{MatematiÄni izrazi}
+
+O matematiÄnih izrazih bomo povedali Å¡e veliko, tu pa razloÅ¾imo osnove. MatematiÄne izraze
+piÅ¡emo v enem od dveh \emph{matematiÄnih naÄinov}:
+%
+\begin{description}
+\item \emph{vrstiÄni naÄin} (inline math), kjer je izraz zapisan med znakoma \texttt{\$}, na
+  primer $a^2 + b^2 = c^2$. To je pravzaprav starejÅ¡i zapis, lahko uporabimo tudi
+  \texttt{{\char96}(} in \texttt{{\char96})}, na primer \(a^2 + b^2 = c^2\).
+
+\item \emph{prikazni naÄin} (display math), kjer je izraz zapisan med \texttt{{\char96}[} in
+  \texttt{{\char96}]}, na primer
+  %
+  \[
+    a^2 + b^2 = c^2.
+  \]
+  %
+  Izraz v prikaznem naÄinu mora biti vedno del stavka in mora vsebovati loÄilo, Äe je to
+  smiselno. StarejÅ¡i zapis za prikazni naÄin je z \texttt{\$\$}:
+  %
+  $$
+    a^2 + b^2 = c^2.
+  $$
+\end{description}
+
+\noindent
+%
+Z ukazoma \texttt{{\char96}textstyle} in \texttt{{\char96}displaystyle} lahko nastavimo
+vrstiÄni ali prikazni naÄin na roke, kar se denimo vidi, ko zapiÅ¡emo ulomke. Ulomek
+$\frac{2}{3}$ je v vrstiÄnem naÄinu, ulomek $\displaystyle \frac{2}{3}$ pa v prikaznem,
+Äeprav je znotraj vrstice. Kot vidimo, je to zelo grdo, saj so zaradi tega ulomka vrstice
+med seboj preveÄ razmaknjene. Å e najbolje bi bilo pisati $2/3$.
+
+MatmatiÄni izraz moramo vedno zapisati v celoti in ga ne delimo na veÄ kosov. Tako je
+pravilno $x + y = y + x$ in ne $x$ + $y$ = $y$ + $x$.
+
+\emph{Vsak} matematiÄni izraz mora biti v matematiÄnem naÄinu, Äe tudi je dolg samo en
+znak. Nepravilno je zapisati ``naj bo x realno Å¡tevilo'', pravilno pa je ``naj bo $x$
+realno Å¡tevilo''.
+
+
+\section{Viri}
+
+Navedimo nekaj virov za {\LaTeX}. Ker smo uporabili paket \texttt{hyperref}, lahko na povezave kar kliknete:
+%
+\begin{description}
+\item[\href{http://www-lp.fmf.uni-lj.si/plestenjak/vaje/latex/lshort.pdf}{\emph{Ne najkrajÅ¡i uvod v {\LaTeX}}}]
+  Ravno pravÅ¡nji pregled {\LaTeX}a --- priporoÄamo!
+
+\item[\url{https://www.sharelatex.com/learn/Main_Page}]
+  NauÄite se LaTeX v 30 minutah!
+
+\item[\url{https://miktex.org}] LaTeX za MS Windows
+
+\item[\url{http://www.tug.org/mactex/}] LaTeX za MacOS
+
+\item[\url{https://www.tug.org/texlive/}] LaTeX za Linux (vendar ga namestita kar kot paket)
+
+\item[\url{https://www.sharelatex.com}] LaTeX v vaÅ¡em brskalniku, ne zahteva nobenega
+  nameÅ¡Äanja opreme, poleg tega omogoÄa tudi hkratno urejanje veÄih avtorjev.
+
+\item[\url{https://www.overleaf.com}]
+  Alternativa za ShareLaTeX.
+
+\item[\url{https://www.latex-project.org/help/documentation/}]
+  Uradna dokumentacija za {\LaTeX}.
+
+\item[\url{https://www.ctan.org}] Uradna zbirka vseh paketov za {\LaTeX}. Tu najdete
+  dokumentacijo za pakete, ki pa jih ne nameÅ¡Äajte sami, ker jih lahko samodejno z vaÅ¡im
+  LaTeXom.
+
+\item[\url{https://en.wikibooks.org/wiki/LaTeX}]
+  UÄbenik za LaTeX v angleÅ¡Äini.
+
+\item[\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}]
+  230 strani posebnih matematiÄnih znakov za {\LaTeX}.
+
+\item[\url{http://detexify.kirelabs.org/classify.html}] ÄŒe iÅ¡Äete poseben znak, ga tu
+  nariÅ¡ete in spletna stran vam pove, kateri ukaz v {\LaTeX}u vam da tak znak.
+\end{description}
+
+\end{document}
