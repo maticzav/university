@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\newcommand{\mymacro}{Macro contents}
+\newcommand{\macroWithArgs}[2]{Applied to args #1  and #2!}
+\newcommand{\family}[3][Matic]{#1 #2 #3}
+\newcommand{\helloworld}[1]["Matic"]{Hello world #1!}
+
+\begin{document}
+
+\mymacro{}
+\macroWithArgs{"foo"}{"bar"}
+
+\family[Foo]
+\helloworld[Tela]
+
+\end{document}

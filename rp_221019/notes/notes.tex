@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+
+\usepackage{hyperref}
+\usepackage{makeidx}
+
+% Create a command representation "\#1{}"
+\newcommand{\command}[1]{
+    \commandTwo{#1}{}\
+}
+
+% Create a command representation "\#1{#2}"
+\newcommand{\commandTwo}[2]{
+    \texttt{\textbackslash{}#1\{#2\}}\
+}
+
+% Create a command representation "\#1[#2]{#3}"
+\newcommand{\commandThree}[3]{
+    \texttt{\textbackslash{}#1[#2]\{#3\}}\
+} 
+
+\newcommand{\package}[1]{
+    \commandTwo{usepackage}{#1}
+}
+
+
+\begin{document}
+
+\title{Third practice notes - \LaTeX{}}
+\author{Matic Zavadlal}
+
+\maketitle
+
+\begin{abstract}
+   Today we discussed maths symbols and macros. There's also explanation on how to cite sources in \LaTeX{}. 
+\end{abstract}
+
+\section{Macros}
+
+\LaTeX{} allows you to compose custom "functions" called macros.
+Each macro is defined using \texttt{\textbackslash{}newcommand}, and continue by listing arguments and implementation.
+
+\begin{itemize}
+    \item Because \LaTeX{} isn't very good with data structure you can only make the first parameter optional.
+    \item We reference parameters using \texttt{\#n} where \texttt{n} represents the order of the parameter you are referring to.
+    \item We override a default argument using square brackets \newline
+            \command{commandName}{override}{otherArgs}
+  
+\end{itemize}
+
+\section{Bibliography in \LaTeX{}}
+
+A short note on how to cite bibliography in \LaTeX{}.
+
+\subsection{Packages}
+
+\begin{itemize}
+    \item \package{hyperref} for hyper links in the pdf file.
+    \item \package{makeidx} don't know yet.
+\end{itemize}
+
+\subsection{Creating bibliography}
+
+\section{Other notes}
+
+Random notes that had nowhere to go.
+
+\begin{itemize}
+   \item We can create new line in latex using \command{newline}\ , or by creating an empty line between two paragraphs.
+   \item We should use $\sim{}$ (\emph{$Prof. \sim{}A.\sim{}Bauer$}) when using names.
+\end{itemize}
+
+\end{document}

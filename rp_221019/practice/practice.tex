@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{xifthen}
+\usepackage{calc}
+
+% 1
+
+\newcommand{\numN}{\mathbb{N}}
+\newcommand{\numC}{\mathbb{C}}
+\newcommand{\numR}{\mathbb{R}}
+
+% 2
+
+\newcommand{\cont}{\mathcal{C}}
+
+%3 
+
+\newcommand{\continuousOn}[1]{\cont(#1)}
+
+% 4
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% 6
+
+\newcommand{\newcont}[1]{%
+\ifthenelse{\isempty{#1}}%
+{\cont{}}%
+{\continuousOn{#1}}
+}
+
+% 7
+
+\newcommand{\cmd}[1]{
+    \texttt{\textcolor{blue}{\textbackslash#1}}
+}
+
+% 8
+
+\newcommand{\demolength}[1]{\rule{#1}{1pt}}
+
+% 9
+
+\newcommand{\itemWidth}[1]{
+    \demolength{\widthof{#1}} is the length of \texttt{#1}.
+}
+
+\begin{document}
+    
+\section{Excercises 1-8.}
+
+\begin{itemize}
+    \item Number systems: $\numN \numC \numR$
+    \item Continuous functions: $\cont{}$
+    \item C. functions domain: $\continuousOn{\numR{}} \quad \continuousOn{\numR{}^2}$
+    \item Vectors: $\vect{a}$
+    \item XIfThen: $\newcont{} \quad \newcont{\numR{}}$
+    \item Command: \cmd{foo}.
+    \item Demo length: \demolength{1cm} is 1 cm.
+\end{itemize}
+
+\section{Different widths of whitespace commands.}
+
+\begin{itemize}
+    \item \itemWidth{Prof. A.\, Bauer}
+    \item \itemWidth{Prof. A.\ Bauer}
+    \item \itemWidth{Prof.~A.~Bauer}
+    \item \itemWidth{Prof. A. Bauer.}
+\end{itemize}
+
+\emph{We should use the third option \emph{\texttt{"Prof.\~A.\~Bauer"}}}
+
+\end{document}
