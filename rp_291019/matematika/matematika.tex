@@ -1,0 +1,178 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\section {Naloge iz matematike}
+
+\begin{enumerate}
+    \item Dokaži, da je enačba \((P \cap X) \cup (Q \cap X^{c}) = \emptyset\) rešljiva natanko tedaj, ko je \(Q \subseteq P^{c}\).
+
+    \item {
+        Pokaži: 
+        \begin{itemize}
+            \item  \(M = N \iff M + N = \emptyset\)
+            \item \(M = N = \emptyset \iff M \cup N = \emptyset\)
+        \end{itemize}
+   }
+
+    \item Ali obstaja tak izjavni izraz \(A\), da bosta izraza \((p \wedge A) \lor (p \Rightarrow \neg{A})\)in \((p \Rightarrow A) \Rightarrow q\) enakovredna?
+
+
+    \item {
+        Dokaži:
+        \begin{itemize}
+            \item \((A \Rightarrow B) \sim (\neg{B} \Rightarrow \neg{A})\)
+            \item \(\neg{(A \vee B)} \sim \neg{A} \wedge \neg{B}\)
+        \end{itemize}
+    }
+
+    \item Poišči preneksno obliko formule \(\exists{x} : P(x) \wedge \forall{x} : Q(x) \Rightarrow \forall{x} : R(x)\).
+
+    \item Vektorja \(\vec{a} = \vec{a} + 2\vec{b}\) in \(\vec{d} = \vec{a} - \vec{b}\) sta pravokotna in imata dolžino 1. Določi kot med vektorjema \(\vec{a}\) in \(\vec{b}\).
+
+    \item Določi definicijsko območje funkcije 
+        \[f(x) = \log{\frac{x^2 + 1}{x^2 - 4x + 3}}\]
+
+    \item Izračunaj 
+    \[
+        \cos^2\frac{3\pi}{8} + \cos^2\frac{5\pi}{8} + \cos^2\frac{7\pi}{8} + \cos^2\frac{8\pi}{8}
+    \]
+
+    \item Dokaži, da za vsa naravna števila $n$ velja
+         \[
+            \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \cdots{} + \frac{1}{\sqrt{n}} \geq \sqrt{n}
+         \]
+
+    \item Naj bo \(z\) kompleksno število, \(z \neq 1\) in \(\left| z \right| = 1\). Dokaži, da je število \(i \frac{z + 1}{z - 1}\) realno.
+
+    \item Pokaži, da je funkcija \(x \mapsto \sqrt{x}\) enakomerno zvezna na \([0, \infty)\).
+
+    \item Izračunaj limito 
+            \[
+                \lim_{x \rightarrow \infty}{(\sin\sqrt{x + 1} - \sin\sqrt{x})}
+            \]
+
+    \item Dani sta grupi \((G, \ast)\) in \((H, \circ)\). V množici \(G \times H\) definiramo operacijo \[
+       (g_1, h_1) \cdot (g_2, h_2) = (g_1 \ast g_2, h_1 \circ h_2) 
+    \]
+        Pokaži, da je množica \(G \times H\) grupa za to operacijo.
+
+    \item Pokaži, da ima \(f(x) = 3x + \sin(2x)\) inverzno funkcijo in izračunaj \((f^{-1})(3\pi)\).
+
+    \item Izračunaj integral korenske funkcije \[
+        \int{\frac{2+\sqrt{x + 1}}{(x+1)^2 - \sqrt{x + 1}}dx}
+    \]
+
+    \item {
+        Krivulja je podana parametrično z enačbama
+        \begin{align}
+            x(t) = \int_1^t{\frac{\sin u}{u^2}du} && y(t) = \int_1^t{\frac{\cos{u}}{u^2}du} \nonumber
+        \end{align}
+        Izračunaj dolžino poti od točke \(x = 0\) do točke, v kateri je tangenta prvič navpična.
+    }
+
+    \item {
+        Naj bo \(\sum_{n=1}^{\infty} a_n\) absolutno konvergentna vrsta in \(a_n \neq 1\) za \(n \in \mathbb{N}\).
+        Dokaži, da sta vrsti 
+        \begin{align}
+            \sum_{n=1}^{\infty}{\frac{a_n}{1 + a_n}} && \text{in} && \sum_{n=1}^{\infty}{\frac{a_n^2}{1 + a_n^2}} \nonumber
+        \end{align}
+        absolutno konvergentni.
+    }
+        
+    \item {
+        Funkcijsko zaporedje $f_n : [a,b] \rightarrow [c,d]$ enakomerno konvergira na $[a,b]$ proti funkciji $f$.
+        Naj bo $g:[c,d] \rightarrow \mathbb{R}$ zvezna. Dokaži, da funkcijsko zaporedje $g \circ f_n$
+        enakomerno konvergina na $[a,b]$ in določi njegovo limitno funkcijo.
+    }
+
+    \item {
+        Izračunaj limito zaporedja
+        \[
+            \lim_{n \rightarrow \infty} \frac{\sqrt[3]{n^2 + n - 1} + \sqrt[3]{n} + n^2}{2n^2 + \sqrt{n} + 1}
+        \]
+    }
+
+    \item {
+        Izračunaj $\left(\ \begin{matrix}
+            1 & 2 & 3 & 4 & 5 & 6 \\
+            4 & 5 & 2 & 6 & 3 & 1
+        \end{matrix}\ \right)^{-2000}$
+    }
+
+    \item {
+        Poenostavi
+        \[
+            \frac{
+                \frac{3\ +\ i}{2\ -\ 2i} + \frac{7i}{1\ -\ i}
+            }{
+                1\ +\ \frac{i - 1}{4} - \frac{5}{2 - 3i}
+            }
+        \]
+    }
+
+    \item {
+        Za dani zaporedji preveri, ali sta konvergentni
+        \begin{align}
+            a_n = \underbrace{\sqrt{2 + \sqrt{2 + \cdots + \sqrt{2}}}}_{\text{n korenov}} && b_n=\underbrace{\sin(\sin(\dots\sin(1)\dots))}_{\text n sinusov} \nonumber
+        \end{align}
+    }
+
+
+    \item {
+        Ugotovi, ali obstaja
+        \[
+            \lim_{y \rightarrow 0} y\left(\frac{y + 1}{y} - \sqrt{\frac{y^2 + 1}{y^2}}\right)
+        \]
+        Pomagaj si z limitama funkcije $\frac{x + 1 - \sqrt{x^2 + 1}}{x}$ v $-\infty$ in $\infty$.
+    }
+
+    \item {
+        Izračunaj naslednjo determinanto ??, ki ima na neoznačenih mestih ničle.
+        ??
+    }
+\end{enumerate} 
+
+
+
+
+
+
+Dana je funkcija
+??
+Določi parameter ?? tako, da bo ?? zvezna.
+Izračunaj parcialna odvoda ?? in ?? za ??.
+Izračunaj parcialna odvoda ?? in ??.
+Če obstaja, izračunaj limito
+??
+Ali je funkcija ?? diferenciabilna?
+
+Poišči vse rešitve enačbe
+??
+
+Dokaži binomsko formulo: za vsaki realni števili ?? in ?? in za vsako naravno število ?? velja
+??
+
+Naj bo
+??
+Pokaži, da je ?? podgrupa v grupi ??
+neničelnih kompleksnih števil za običajno množenje.
+Pokaži, da je ?? podgrupa v aditivni grupi ??
+ravninskih vektorjev za običajno seštevanje po komponentah.
+Pokaži, da je preslikava ??, podana s pravilom
+??
+izomorfizem grup ?? in ??.
+
+Nariši grafe funkcij:
+??
+
+\end{document}
