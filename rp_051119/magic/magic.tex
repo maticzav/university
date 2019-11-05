@@ -20,16 +20,31 @@
 \theoremstyle{plain}
 \newtheorem{thrm}{Izrek}
 
-\newenvironment{dokaz}{%
-   \proof[\ttfamily \scshape \large]
-   \noindent\textbf{Dokaz.}
+\newenvironment{dokaz}{
+   \begin{proof}[\textnormal{\textbf{Dokaz.}}]
    }{
-      \endproof
-      }
+   \end{proof}
+   }
 
 \newcommand{\pojem}[1]{
    \underline{\textsc{#1}}
 }
+
+\newenvironment{magic}[3]{
+   \begin{table}[h!]
+      \caption{#2}
+      \centering
+      \large
+      \label{tbl:#3}
+         \begin{tabular}{|*#1{c|}}
+            \hline
+}{
+      \end{tabular}
+   \end{table}
+}
+
+% \belowcaptionskip is a global configuration variable.
+\setlength{\belowcaptionskip}{0.2\baselineskip}
 
 \begin{document}
 
@@ -48,7 +63,7 @@ Prirejeno iz virov:
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.5\textwidth]{slika.pdf}
+   \includegraphics{slika.pdf}
    \label{fig:slika}
 \end{figure}
 
@@ -69,13 +84,15 @@ Prirejeno iz virov:
    če seštejemo vsa števila poljubne vrstice, vsa števila poljubnega
    stolpca ali vsa števila v katerikoli od glavnih diagonal.
    
-   \noindent Primer magičnega kvadrata reda 3 je prikazan v tabeli ??.
+   % use ~ to prevent line break (so that the "1" sticks to the end).
+   \noindent Primer magičnega kvadrata reda 3 je prikazan v tabeli~\ref{tbl:kvadrat3}.
 
    %
-   Magični kvadrat reda 3
-   %   8 & 1 & 6 \\\hline
-   %   3 & 5 & 7 \\\hline
-   %   4 & 9 & 2 \\\hline
+   \begin{magic}{3}{Magični kvadrat reda 3}{kvadrat3}
+      8 & 1 & 6 \\\hline
+      3 & 5 & 7 \\\hline
+      4 & 9 & 2 \\\hline
+   \end{magic}
 
 \end{defn}
 
