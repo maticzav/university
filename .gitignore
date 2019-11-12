@@ -10,3 +10,6 @@ rp*/**/*.fls
 rp*/**/*.synctex.gz
 rp*/**/*.fdb_latexmk
 rp*/**/*.out
+rp*/**/*.toc
+rp*/**/*.snm
+rp*/**/*.nav
