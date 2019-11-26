@@ -1,10 +1,17 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{lmodern}
 
 \usepackage{hyperref}
-\usepackage{makeidx}
+
+
+
 
 % Create a command representation "\#1{}"
 \newcommand{\command}[1]{
@@ -28,14 +35,38 @@
 
 \begin{document}
 
-\title{Third practice notes - \LaTeX{}}
+\title{LatexNotes}
 \author{Matic Zavadlal}
 
 \maketitle
 
 \begin{abstract}
-   Today we discussed maths symbols and macros. There's also explanation on how to cite sources in \LaTeX{}. 
+    We will learn how to use VSCode and how to write LaTeX.
 \end{abstract}
+
+\section{Moving documents using bash}
+
+You can move documents and folders around using
+
+\begin{lstlisting}[language=Bash]
+    mv <source> <target>
+\end{lstlisting}
+
+That's how you move around documents and folders using bash! 
+
+\section{Math formulas}
+
+We type math formulas in \LaTeX{} using "\\\[" and "\\\]".
+
+\section{Lists in LaTeX}
+
+We create lists in \LaTeX using one of the list types and enumerating items inside the clause.
+
+\begin{itemize}
+    \item itemize - for a bullet list
+    \item enumerate for an enumerated list and
+    \item description for a descriptive list.
+\end{itemize}
 
 \section{Macros}
 
