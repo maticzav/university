@@ -1,0 +1,82 @@
+body {
+   background-image: url("vreme.jpg");
+}
+
+h1, h2 {
+   color: firebrick;
+   font-family: "Courier New";
+   font-style: italic;
+   text-align: center;
+}
+
+h1 {
+   margin: 0;
+   text-decoration: underline overline;
+   text-align: center;
+}
+
+h2 {
+   text-decoration: underline;
+   margin-top: 0;
+}
+
+table {
+   margin-left: auto;
+   margin-right: auto;
+   width: 700px;
+   border-collapse: collapse;
+}
+
+table, th, td {
+   border: 1px solid brown;
+   table-layout: fixed;
+   padding: 10px;
+}
+
+.table__header {
+   background-color: wheat;
+   vertical-align: middle;
+}
+
+.table__row {
+   background-color: white;
+}
+
+.table__row td {
+   vertical-align: top;
+   width: 50%;
+}
+
+.table__footer {
+   background-color: lightyellow;
+}
+
+img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   border: 0;
+}
+
+p {
+   font-size: 10px;
+   font-family: "Verdana";
+   text-align: justify;
+   text-indent: 3ex;
+}
+
+ul > li {
+   list-style-type: square;
+   font-family: "Arial";
+   font-size: 11px;
+   color: blue;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:hover {
+   font-style: italic;
+   color: red;
+}
