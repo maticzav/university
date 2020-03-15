@@ -110,13 +110,16 @@ def iz_ciklov(cikli, dolzina=0):
 def v_cikle(permutacija):
     cikli = []
     obiskani = []
-    cikel = []
-    for i, b in enumerate(permutacija):
-        a = i + 1
-        if b not in obiskani and a != b:
-            cikli.append([a, b])
+    for a in permutacija:
+        if a not in obiskani:
+            cikel = [a]
             obiskani.append(a)
-    return cikli
+            while permutacija[cikel[-1] - 1] != a:
+                naslednji = permutacija[cikel[-1] - 1]
+                cikel.append(naslednji)
+                obiskani.append(naslednji)
+            cikli.append(cikel)
+    return urejeni_cikli(cikli)
 
 # =====================================================================@013409=
 # 6. podnaloga
@@ -163,15 +166,23 @@ def inverz_cikli(cikli):
 #     >>> ciklicni_tip([[7, 3], [4], [5, 2, 1]], 9)
 #     (4, 1, 1)
 # =============================================================================
-def ciklicni_tip(cikli: list):
-    dolzina = 0
+def ciklicni_tip(cikli: list, dolzina=0):
+    cikli = v_cikle(iz_ciklov(cikli))
+    # Dolzina permutacije
     for cikel in cikli:
         dolzina = max(dolzina, max(cikel))
+    # Tipi
+    tipi = ()
     dolzine = [len(cikel) for cikel in cikli]
-    najvecji_cikel = len(max(cikli, key=len))
-    tipi = (dolzine.count(1))
-    for i in range(najvecji_cikel):
-        tipi += ()
+    enojci = dolzina - sum(dolzine)
+    while dolzina > 1:
+        st = dolzine.count(dolzina)
+        if len(tipi) > 0 or st > 0:
+            tipi = (st,) + tipi
+        dolzina -= 1
+    # Enojci
+    tipi = (enojci,) + tipi
+    return tipi
 
     
 
