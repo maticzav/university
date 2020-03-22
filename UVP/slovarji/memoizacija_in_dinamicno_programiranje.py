@@ -99,7 +99,7 @@ def najlazja_pot_slovar(A):
 # =============================================================================
 def memo(fn):
     store = {}
-    def f(a, b=0):
+    def f(a, b):
         if (a, b) not in store:
             store[(a, b)] = fn(a, b)
         return store[(a, b)]
@@ -123,7 +123,7 @@ def najlazja_pot_memo(A):
         if j == 0:
             return A[i][j] + pomozna(i - 1, j)
         return A[i][j] + min(pomozna(i - 1, j), pomozna(i, j - 1))
-    return pomozna(0, 0)
+    return pomozna(stolpci - 1, vrstice - 1)
 
 
 
