@@ -74,11 +74,13 @@ def pari(mreza):
 # so do Ceneta posebej ustrežljivi Ana (ki je zaljubljena vanj), Bine (ki je
 # zaljubljen v Ano) ter Cene in Eva (ki sta zaljubljena v Bineta).
 # =============================================================================
-def ustrezljivi(oseba, zaljubljeni):
-    osebe = {zaljubljen for zaljubljen, ustrezejo in zaljubljeni.items() if oseba in ustrezejo}
-    for ustrezljiv in osebe:
-        osebe |= ustrezljivi(ustrezljiv, zaljubljeni)
-    return osebe
+def ustrezljivi(oseba, mreza):
+    zaljubljeni = {zaljubljen for zaljubljen, ustrezejo in mreza.items() if oseba in ustrezejo}
+    for ustrezljiv in zaljubljeni.copy():
+        if ustrezljiv != oseba:
+            mreza[ustrezljiv] -= {oseba}
+            zaljubljeni |= ustrezljivi(ustrezljiv, mreza)
+    return zaljubljeni
 
 
 
