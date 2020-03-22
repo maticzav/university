@@ -37,7 +37,13 @@
 # uporablja rekurzije ali zank, prav tako naj ne spreminja slovarja `resitve`.
 # =============================================================================
 def najlazja_pot_do(A, i, j, resitve):
-    levo = najlazja_pot_do()
+    if i == 0 and j == 0:
+        return A[i][j]
+    if i == 0:
+        return A[i][j] + resitve[i, j - 1]
+    if j == 0:
+        return A[i][j] + resitve[i - 1, j]
+    return A[i][j] + min(resitve[i - 1, j], resitve[i, j - 1])
 
 # =====================================================================@013497=
 # 2. podnaloga
@@ -45,6 +51,14 @@ def najlazja_pot_do(A, i, j, resitve):
 # najlažji poti v matriki `A`. Pri tem naj si pomaga s funkcijo
 # `najlazja_pot_do` in ustrezno polni slovar, ki ji ga poda kot argument.
 # =============================================================================
+def najlazja_pot_slovar(A):
+    resitve = {}
+    stolpci = len(A[0])
+    vrstice = len(A)
+    for i in range(vrstice):
+        for j in range(stolpci):
+            resitve[(i, j)] = najlazja_pot_do(A, i, j, resitve)
+    return resitve[stolpci - 1, vrstice - 1]
 
 # =====================================================================@013498=
 # 3. podnaloga
@@ -83,6 +97,13 @@ def najlazja_pot_do(A, i, j, resitve):
 #     >>> sesteti_pari
 #     [(42, 23), (23, 42)]
 # =============================================================================
+def memo(fn):
+    store = {}
+    def f(a, b=0):
+        if (a, b) not in store:
+            store[(a, b)] = fn(a, b)
+        return store[(a, b)]
+    return f
 
 # =====================================================================@013499=
 # 4. podnaloga
@@ -90,7 +111,19 @@ def najlazja_pot_do(A, i, j, resitve):
 # v najlažji poti v matriki `A`. Pri tem naj si pomaga z dekoratorjem `memo`
 # in gnezdeno rekurzivno pomožno funkcijo, ki jo pokliče samo enkrat.
 # =============================================================================
-
+def najlazja_pot_memo(A):
+    stolpci = len(A[0])
+    vrstice = len(A)
+    @memo
+    def pomozna(i, j):
+        if i == 0 and j == 0:
+            return A[i][j]
+        if i == 0:
+            return A[i][j] + pomozna(i, j - 1)
+        if j == 0:
+            return A[i][j] + pomozna(i - 1, j)
+        return A[i][j] + min(pomozna(i - 1, j), pomozna(i, j - 1))
+    return pomozna(0, 0)
 
 
 
