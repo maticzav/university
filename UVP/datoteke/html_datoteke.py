@@ -23,6 +23,22 @@
 #     Jutri bo lepo vreme.
 #     Več o vremenu preberite tukaj.
 # =============================================================================
+def html2txt(vhodna, izhodna):
+    # nalozi html
+    with open(vhodna) as d:
+        html = d.read()
+    značka = False
+    txt = ""
+    for znak in html:
+        if znak in "<>":
+            značka = not značka
+        else:
+            if not značka:
+                txt += znak
+    with open(izhodna, "w") as f:
+        f.write(txt)
+    
+    
 
 # =====================================================================@001507=
 # 2. podnaloga
@@ -60,6 +76,21 @@
 # Pozor: Pazi na zamik (število presledkov na začetku vrstic) v izhodni
 # datoteki.
 # =============================================================================
+def tabela(vhodna, izhodna):
+    # preberi podatke
+    with open(vhodna) as d:
+        csv = [line.split(",") for line in d.readlines()]
+    # sestavi html
+    html = "<table>\n"
+    for vrstica in csv:
+        html += "  <tr>\n"
+        for podatek in vrstica:
+            html += "    <td>{}</td>\n".format(podatek.strip())
+        html += "  </tr>\n"
+    html += "</table>"
+    # izpiši
+    with open(izhodna, "w") as f:
+        f.write(html)
 
 # =====================================================================@001508=
 # 3. podnaloga
@@ -90,6 +121,31 @@
 #       <li>obiskati sosedo.</li>
 #     </ul>
 # =============================================================================
+def seznami(vhodna, izhodna):
+    with open(vhodna) as d:
+        md = [line.strip() for line in d.readlines()]
+    seznam = False
+    html = ""
+    for line in md:
+        # zacni seznam
+        if line.startswith("*"):
+            if not seznam:
+                seznam = True
+                html += "<ul>\n"
+            html += "  <li>{}</li>\n".format(line.replace("* ", ""))
+        
+        # koncaj seznam
+        if not line.startswith("*"):
+            if seznam:
+                seznam = False
+                html += "</ul>\n"
+            html += "{}\n".format(line)
+    # zapri seznam
+    if seznam:
+        html += "</ul>\n"
+    with open(izhodna, "w") as f:
+        f.write(html)
+        
 
 # =====================================================================@001509=
 # 4. podnaloga
@@ -136,6 +192,38 @@
 # 
 # Značk `<li>` ne zapirajte.
 # =============================================================================
+def preberi_vrstico(line):
+    globina = len(line) - len(line.lstrip())
+    return (globina, line.strip())
+
+def gnezdeni_seznami(vhodna, izhodna):
+    # nalozi podatke
+    with open(vhodna) as d:
+        txt = [preberi_vrstico(line) for line in d.readlines()]
+    listi = [0]
+    html = "<ul>\n"
+    for (globina_vrstice, vrstica) in txt:
+        # ce gremo bolj desno začni seznam
+        if globina_vrstice > globina:
+            abs_globina += 2
+            html += "{}<ul>\n".format(" " * abs_globina)
+            abs_globina += 2
+        if globina_vrstice < globina:
+            for _ in range((globina - globina_vrstice ) // 2):
+                abs_globina -= 2
+                html += "{}</ul>\n".format(" " * abs_globina)
+            abs_globina -= 2
+        # dodaj podatek
+        html += "{}<li>{}\n".format(" " * abs_globina, vrstica)
+        # shrani trenutno globino
+        globina = globina_vrstice
+    for _ in range(abs_globina // 4):
+        abs_globina -= 4
+        html += "{}</ul>\n".format(" " * abs_globina)
+    html = html.rstrip("\n")
+    # izpisi tabelo
+    with open(izhodna, "w") as f:
+        f.write(html)
 
 
 
