@@ -200,7 +200,8 @@ def gnezdeni_seznami(vhodna, izhodna):
     # nalozi podatke
     with open(vhodna) as d:
         txt = [preberi_vrstico(line) for line in d.readlines()]
-    listi = [0]
+    globina = 0
+    abs_globina = 2
     html = "<ul>\n"
     for (globina_vrstice, vrstica) in txt:
         # ce gremo bolj desno začni seznam
@@ -208,15 +209,19 @@ def gnezdeni_seznami(vhodna, izhodna):
             abs_globina += 2
             html += "{}<ul>\n".format(" " * abs_globina)
             abs_globina += 2
+        # ce gremo bolj levo zaključi sezname
         if globina_vrstice < globina:
             for _ in range((globina - globina_vrstice ) // 2):
                 abs_globina -= 2
                 html += "{}</ul>\n".format(" " * abs_globina)
-            abs_globina -= 2
+                abs_globina -= 2
         # dodaj podatek
         html += "{}<li>{}\n".format(" " * abs_globina, vrstica)
         # shrani trenutno globino
         globina = globina_vrstice
+    # zapri na koncu seznama
+    abs_globina -= 2
+    html += "{}</ul>\n".format(" " * abs_globina)
     for _ in range(abs_globina // 4):
         abs_globina -= 4
         html += "{}</ul>\n".format(" " * abs_globina)
