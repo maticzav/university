@@ -16,14 +16,21 @@
 #     >>> [next(g) for i in range(5)]
 #     ['1', '11', '21', '1211', '111221']
 # =============================================================================
-def prestej(niz):
-    nov_niz = niz.lstrip(niz[0])
-    return (nov_niz, len(niz) - len(nov_niz))
+def poglej(niz):
+    videno = ""
+    while niz != "":
+        znak = niz[0]
+        nov_niz = niz.lstrip(znak)
+        ponovitve = len(niz) - len(nov_niz)
+        niz = nov_niz
+        videno += "{}{}".format(ponovitve, znak)
+    return videno
 
 def poglej_in_povej():
     niz = "1"
     while True:
-        
+        yield niz
+        niz = poglej(niz)
 
 
 # =====================================================================@001929=
@@ -43,10 +50,19 @@ def poglej_in_povej():
 #     >>> [next(g) for x in range(20)]
 #     [1, 2, 1, 3, 1, 2, 1, 4, 1, 2, 1, 3, 1, 2, 1, 5, 1, 2, 1, 3]
 # =============================================================================
-
-
-
-
+def ravnilo():
+    n = 1
+    ps = []
+    while True:
+        cps = ps[::1]
+        # poves vrednost
+        yield n
+        ps.append(n)
+        # preberes vse od prej
+        for p in cps:
+            yield p
+            ps.append(p)
+        n += 1
 
 
 
